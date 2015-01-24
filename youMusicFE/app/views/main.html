@@ -1,0 +1,48 @@
+<div class="pad20" >
+  <div class="media">
+  <div class="media-left">
+    <img class="media-object" style="height:67px;" src="images/yeoman.png" alt="download youtube vidoes"
+	data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+  </div>
+  <div class="media-body">
+      <div style="padding: 3px;">Download 
+<a data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">MP3s <span  class="badge">{{awesomeItems.length}}</span> </a>
+	  from Youtube<span class="hidden-xs"> Videos</span></div>
+		<input type="text" class="form-control" ng-keyup="searchKeyup($event)" ng-keydown="searchKeydown($event)" placeholder="Search & download from Youtube.com" ng-model="queryString">
+	</div>
+  </div>
+
+</div>
+
+<div class="collapse pad20" style="margin-top:30px;" id="collapseExample">
+  <div class="panel panel-warning">
+  <div class="panel-heading">
+   Here are your pending or available download links
+   </div>
+  <div class="panel-body">
+
+   <div ng-repeat="link in awesomeItems" style="max-height:19px; overflow:hidden;">
+   <a ng-click="whichPath(link.path)">
+   <span class="label label-warning" ng-show="link.path === 'loading'">Loading...</span>
+   <span class="label label-success" ng-hide="link.path === 'loading'">Download</span>
+	{{link.title}}
+   </a>
+   </div>
+
+   </div>
+  </div>
+</div>
+
+<div class="clearfix" style="margin-top:30px;"></div>
+
+<a class="col-sm-6 col-md-4" ng-repeat="video in videos | removeYTUsers" ng-Click="request(video.id.videoId, video.snippet.title)">
+	<div class="thumbnail" style="position:relative">
+		<img src="{{video.snippet.thumbnails.high.url}}" alt="{{video.snippet.title}}">
+		<div class="caption" style="height:60px;overflow:hidden;">
+			<p>{{video.snippet.title}} </p>
+			
+		</div>
+		
+		<div style="position:absolute;right:3px; bottom:3px;background-color: rgba(255,255,255,.8)"><b>{{video.snippet.channelTitle}}</b></div>	
+	</div>
+</a>

@@ -1,0 +1,5 @@
+/node_modules/*
+/public/*
+/youMusicFE/node_modules/*
+/youMusicFE/bower_components/*
+/config/*
