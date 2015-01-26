@@ -42,6 +42,10 @@ angular.module('youMusicApp')
 	$scope.search();
 	
 	$scope.request = function(videoId, title) {
+		$('#logo').addClass('animated bounceIn');
+		setTimeout(function() {
+			$('#logo').removeClass('animated bounceIn');
+		}, 1000);
 		console.log(videoId);
 		socket.emit('dlRequest', videoId, title);
 		var contains = false;

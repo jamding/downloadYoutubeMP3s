@@ -59,8 +59,9 @@ io.on('connection', function(socket){
 					thisSong = new Song({
 						videoId: videoId,
 						path: db.host + '/' + videoId + '.mp3',
-						title: title
+						title: title.replace(' ', '_')
 					});
+					
 					thisSong.save(function (err) { if (err) return console.log(err); });
 					console.log(thisSong);
 					var video_src = ytdl('http://www.youtube.com/watch?v=' + thisSong.videoId);
@@ -77,7 +78,7 @@ io.on('connection', function(socket){
 					var proc = new ffmpeg({source:__dirname + '/public/' + thisSong.videoId + '.flv'})
 						.setFfmpegPath(db.ffmpegPath)
 						.toFormat('mp3')
-						.saveToFile(__dirname + '/public/' + thisSong.videoId + '.mp3')
+						.saveToFile(__dirname + '/public/' + thisSong.title + '(' + thisSong.videoId + ')' + '.mp3')
 						.on('end', function() {
 							callback();
 						})
