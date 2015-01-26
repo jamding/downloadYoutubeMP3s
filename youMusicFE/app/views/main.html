@@ -22,7 +22,7 @@
   <div class="panel-body">
 
    <div ng-repeat="link in awesomeItems" style="max-height:19px; overflow:hidden;">
-   <a ng-click="whichPath(link.path)">
+   <a ng-click="whichPath(link.path)" id="{{link.videoId}}" target="_blank">
    <span class="label label-warning" ng-show="link.path === 'loading'">Loading...</span>
    <span class="label label-success" ng-hide="link.path === 'loading'">Download</span>
 	{{link.title}}

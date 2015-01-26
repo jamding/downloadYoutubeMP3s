@@ -54,28 +54,32 @@ angular.module('youMusicApp')
 				contains = true;
 			}
 		}
-		$scope.awesomeItems.push({
-			videoId: videoId, 
-			path: 'loading',
-			title: title
-		});
+		if(!contains) {
+			$scope.awesomeItems.push({
+				videoId: videoId, 
+				path: 'loading',
+				title: title
+			});
+		}
 	};
 	
 	$scope.whichPath = function(link) {
 		if(link === 'loading') {
 			return false;
 		} else {
-			window.open(link, '_blank');
+			
+			//window.open(link, '_blank');
 		}
 	};
 	
 
 	socket.on('dlComplete', function(song) {
 		console.log(song);
+		$('#' + song.videoId).attr("href", song.path)
 		for(var i in $scope.awesomeItems) {
 			if($scope.awesomeItems[i].videoId === song.videoId) {
 				$scope.awesomeItems[i].path = song.path;
-				console.log('match');
+				// console.log('match');
 			}
 		}
 		$scope.$apply();
