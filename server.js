@@ -58,7 +58,7 @@ io.on('connection', function(socket){
 					//create record and begin download
 					thisSong = new Song({
 						videoId: videoId,
-						path: db.host + '/' + title.replace(' ', '_') + '(' + thisSong.videoId + ')' + '.mp3',
+						path: db.host + '/' + title.replace(' ', '_') + '(' + videoId + ')' + '.mp3',
 						title: title.replace(' ', '_')
 					});
 					

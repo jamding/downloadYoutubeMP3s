@@ -17,7 +17,7 @@ angular.module('youMusicApp')
 			var youtubeParams = [];
 			youtubeParams.push('key=AIzaSyCsFnZ64jbCedT3hzYKjzlHeJAcYsOlC8A');
 			youtubeParams.push('part=snippet');
-			youtubeParams.push('maxResults=6');
+			youtubeParams.push('maxResults=12');
 			youtubeParams.push('q=' + encodeURIComponent(queryString));
 			var youtubeAPI = youtubeURL + youtubeParams.join('&');
 			return $http({
