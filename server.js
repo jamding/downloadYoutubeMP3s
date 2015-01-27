@@ -64,7 +64,7 @@ io.on('connection', function(socket){
 					
 					thisSong.save(function (err) { if (err) return console.log(err); });
 					console.log(thisSong);
-					var video_src = ytdl('http://www.youtube.com/watch?v=' + thisSong.videoId);
+					var video_src = ytdl('https://www.youtube.com/watch?v=' + thisSong.videoId);
 					video_src.pipe(fs.createWriteStream(__dirname + '/public/' + thisSong.videoId + '.flv'));
 					console.log('- saving video file');
 					video_src.on('end', function() {
