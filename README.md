@@ -1,14 +1,11 @@
-MEAN Grunt BOILERPLATE 
+Youtube MP3 Downloader Webapp
 ===========================
 ![MEAN development](https://github.com/jamding/MEAN_GRUNT_Boilerplate/blob/master/meanstack.jpg)
 
 
-1. Specify MONGO host in /config/db.js
-2. npm install
-3. bower
-4. grunt
-5. (optional) git
+Fullstack node/angular/socket.io app to asynchronously request audio downloads from Youtube. Webapp queries Youtube Data v3 API for search, then communicates via Socket.io to download video, convert using FFMPEG to MP3 if not available, then supply user with MP3 download link.
 
-Microframework boilerplate for developing MEAN (Mongo, Express, AngularJS, Node.js) applications with cool deploy and dev automation through grunt (minify & uglify, watch, nodemon, etc).
+Technologies: NodeJS, AngularJS, ExpressJS, MongoDB, FFMPEG, Youtube Data v3 API, Socket.io, websockets, fs, Grunt, Yeoman, JSHint, Bower, TCP, functional design
 
-Architecture inspired by Scotch tutorials, Ruby on Rails, & Yii Microframework Architecture.
+
+NOTE: youtube update 1-27-15 breaks app, throws status 404 when downloading FLV file, pending fix when I have time

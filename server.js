@@ -62,9 +62,11 @@ io.on('connection', function(socket){
 						title: title.replace(' ', '_')
 					});
 					
-					thisSong.save(function (err) { if (err) return console.log(err); });
+
 					console.log(thisSong);
-					var video_src = ytdl('https://www.youtube.com/watch?v=' + thisSong.videoId);
+					var video_src = ytdl('http://www.youtube.com/watch?v=' + thisSong.videoId);
+					console.log('ytdl');
+
 					video_src.pipe(fs.createWriteStream(__dirname + '/public/' + thisSong.videoId + '.flv'));
 					console.log('- saving video file');
 					video_src.on('end', function() {
@@ -72,6 +74,7 @@ io.on('connection', function(socket){
 
 						callback();
 					});
+
 				}, function(callback) {
 					//convert on dl complete
 					console.log('- converting video file');
@@ -80,6 +83,8 @@ io.on('connection', function(socket){
 						.toFormat('mp3')
 						.saveToFile(__dirname + '/public/' + thisSong.title + '(' + thisSong.videoId + ')' + '.mp3')
 						.on('end', function() {
+							thisSong.save(function (err) { if (err) return console.log(err); });
+							console.log(thisSong);
 							callback();
 						})
 						.on('error', function(err, stdout, stderr) {
