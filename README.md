@@ -1,6 +1,6 @@
 Youtube MP3 Downloader Webapp
 ===========================
-![MEAN development](https://github.com/jamding/MEAN_GRUNT_Boilerplate/blob/master/meanstack.jpg)
+![MEAN development](https://raw.githubusercontent.com/jamding/downloadYoutubeMP3s/master/meanstack.jpg)
 
 
 Fullstack node/angular/socket.io app to asynchronously request audio downloads from Youtube. Webapp queries Youtube Data v3 API for search, then communicates via Socket.io to download video, convert using FFMPEG to MP3 if not available, then supply user with MP3 download link.
