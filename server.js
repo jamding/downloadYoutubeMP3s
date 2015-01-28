@@ -64,7 +64,7 @@ io.on('connection', function(socket){
 					
 
 					console.log(thisSong);
-					var video_src = ytdl('http://www.youtube.com/watch?v=' + thisSong.videoId);
+					var video_src = ytdl('http://www.youtube.com/watch?v=' + thisSong.videoId + '&spf=prefetch');
 					console.log('ytdl');
 
 					video_src.pipe(fs.createWriteStream(__dirname + '/public/' + thisSong.videoId + '.flv'));
