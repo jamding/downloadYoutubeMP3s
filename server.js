@@ -17,8 +17,8 @@ var Song = require('./app/models/song');
 
 mongoose.connect(db.url);
 
-var cors = require('cors');
-app.use(cors());
+//var cors = require('cors');
+//app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(bodyParser.urlencoded({ extended: true }));
